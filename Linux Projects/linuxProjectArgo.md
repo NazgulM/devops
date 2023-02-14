@@ -267,4 +267,4 @@ ssh root@remoteIpAddress
 
 ```
 
-
+copy.sh ----> function.sh ----> copy.sh <ip-address> ----> do function.sh in <ip-address>
