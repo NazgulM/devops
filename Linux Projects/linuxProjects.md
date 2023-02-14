@@ -101,3 +101,46 @@ Vi /etc/hosts
 192.241.140.193  my-public-ip.com
 ```
 
+Create two separate scripts, copy.sh and function.sh In function.sh, create functions that: 
+Creates a directory “kaizen”
+Create a file named “I-was-here” with “<your name>” content in your file
+Prints out options for the functions you wrote and accept inputs to choose which function they would like to execute 
+```
+#!/bin/bash
+
+*function1() {*
+mkdir kaizen
+*}*
+
+*function2() {*
+echo “Naza” >> I-was-here
+*}*
+
+read -p “Enter 1 for create folder or 2 for create file: “ num
+
+if [[ $num == [12] ]]; then
+   *function*”$num”
+fi
+```
+
+In copy.sh do:
+Make copy.sh accepts 3 inputs(IPs), when you run the script (eg: ./script 34.55.24.36 66.22.88.44 21.36.25.14),
+
+```
+#!/bin/bash
+
+read -p “please enter the first remote IP: “ ip1
+
+read -p “Please enter the second remote IP: “ ip2
+
+echo “ First IP address is : $ip1 “
+sleep 5s
+
+echo “ Second IP address is: $ip2 “ 
+~                                         
+Execute the functions in function.sh, in the provided hosts (ip addresses) 
+scp /root/function.sh root@157.230.95.36:/root/
+
+ssh -t root@157.230.95.36 mkdir naza
+
+```
