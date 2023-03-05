@@ -55,3 +55,31 @@ Step by step:
 ![3](3.png)
 
 ![4](4.png)
+
+ira Software (software projects) issue types
+By default, software projects come with one parent issue type:
+
+Epic
+
+A big user story that needs to be broken down. Epics group together bugs, stories, and tasks to show the progress of a larger initiative. In agile development, epics usually represent a significant deliverable, such as a new feature or experience in the software your team develops.
+
+By default, software projects come with three standard issue types:
+
+Bug
+
+A bug is a problem which impairs or prevents the functions of a product.
+
+Story
+
+A user story is the smallest unit of work that needs to be done.
+
+Task
+
+A task represents work that needs to be done.
+
+By default, software projects come with one child issue type:
+
+Subtask
+
+A subtask is a piece of work that is required to complete a task. Subtasks issues can be used to break down any of your standard issues in Jira (bugs, stories or tasks).
+
