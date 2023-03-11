@@ -14,7 +14,7 @@ Scrum Master role who will guide the entire team about the agile process anf che
 
 Development team who works on the development of product.
 
-Product Backlog is prioritized list of development team and that is derived from the roadmap and its requirement. Entire list of tasks and requirement for the product development. 
+Product Backlog is prioritized list of development team and that is derived from the roadmap and its requirement. Entire list of tasks and requirement for the product development.
 
 Sprint Backlog Tasks which will be worked in a single Sprint, so Sprint Backlog is a subset of Product backlog.
 
@@ -31,20 +31,20 @@ Epic2= Address
 
 User Story - general or informal explanation regarding the software feature written from the perspective of the end user or the customer, which customer will provide you, you will track all aspects in jira board.
 
-Tasks - Individual issues assigned to the developer to complete the entire user story it can development work oor testing work. 
+Tasks - Individual issues assigned to the developer to complete the entire user story it can development work oor testing work.
 
 Bugs- errors identified by customer on the application deployed in market.
 
 Jira integrated with other tools, most companies use jira.
 Planning handled by the project manager or scrum manager.
 Companies now are following the Agile Method where entire application break down to small small pieces called microservices which makes development faster. One piece of product will take around 1 month to build and launched in market.
-Agile is a philosophy how to successfully deliver software to a customer, scrum is a proven methodology for software development teams to follow. 
+Agile is a philosophy how to successfully deliver software to a customer, scrum is a proven methodology for software development teams to follow.
 
 For demo processes I created the account in atlassian.net.
 
 Create Project--> Scrum--> Team-managed--create clothing_app
 
-Create epics, tasks and bugs related to the Sprint. 
+Create epics, tasks and bugs related to the Sprint.
 
 Step by step:
 
@@ -82,4 +82,3 @@ By default, software projects come with one child issue type:
 Subtask
 
 A subtask is a piece of work that is required to complete a task. Subtasks issues can be used to break down any of your standard issues in Jira (bugs, stories or tasks).
-
