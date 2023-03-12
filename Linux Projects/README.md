@@ -1,6 +1,6 @@
 # Linux projects
 
-1) Through bash script yum install  httpd, tree, wget, epel-release, vim -y
+Through bash script yum install  httpd, tree, wget, epel-release, vim -y
 
 ```
 #!/bin/bash
@@ -8,7 +8,7 @@
 yum install httpd, tree, wget, epel-release, vim -y
 ```
 
-2) Create the kaizen user, create groups (docker, kaizen) and add users from the provided list (students.txt) to kaizen group (using for loop) and add yourself to docker group
+Create the kaizen user, create groups (docker, kaizen) and add users from the provided list (students.txt) to kaizen group (using for loop) and add yourself to docker group
 
 ```
 #!/bin/bash
@@ -24,7 +24,7 @@ for i in $(awk ‘(NR>1) {print $1}’ student.txt) ; do usermod -aG kaizen $i ;
 useradd nazgul && usermod -aG docker nazgul
 ```
 
-3) Make Selinux to permissive
+Make Selinux to permissive
 
 * Connect to a server via SSH.
 * Run the command: # setenforce 0.
@@ -39,7 +39,7 @@ Enforcing
 Permissive
 ```
 
-4) Add the provided aliases (k=kubectl, ti=terraform init, mk=mkdir), and make sure that they are present even on reboot
+Add the provided aliases (k=kubectl, ti=terraform init, mk=mkdir), and make sure that they are present even on reboot
 
 ```
 vi .bashrc
@@ -49,7 +49,7 @@ alias mk=‘mkdir’
 source ~/.bashrc
 ```
 
-5) Using the students information chart (students.txt) do:
+Using the students information chart (students.txt) do:
 Sort students by age from oldest to youngest
 Print out all students that attended “harvard”
 Replace Harvard with ‘H’, Cornell with ‘C’, and MIT with ‘M’ in one command
@@ -60,13 +60,13 @@ grep -wi “harvard” student.txt
 sed -e ’s/Harvard/H/g’ -e ’s/Cornell/C/g’ -e ’s/MIT/M/g’ student.txt > students.txt
 ```
 
-6) Change the permission of students.txt to 765
+Change the permission of students.txt to 765
 
 ```
 chmod 765 students.txt
 ```
 
-7) In the provided list of students.txt, based on the ages of each student print out, “Red” if the user is 20-25 years of age
+In the provided list of students.txt, based on the ages of each student print out, “Red” if the user is 20-25 years of age
 “Yellow” if the user is in 26-30 years of age
 “Blue” if the user is in 31-35 years of age
 
@@ -86,25 +86,26 @@ fi
 done
 ```
 
-8) Create a crontab set on 12 am of every Monday of every month to run “yum update -y”
+Create a crontab set on 12 am of every Monday of every month to run “yum update -y”
 
 ```
 crontab -e 
 0 0 * * 1 yum update -y
 ```
 
-9)  Print the public IP of your VM and add it your /etc/hosts, with “my-public-ip.com” as its domain 
-    
+1) Print the public IP of your VM and add it your /etc/hosts, with “my-public-ip.com” as its domain
+
 ```
 Ifconfig 
 Vi /etc/hosts
 192.241.140.193  my-public-ip.com
 ```
 
-Create two separate scripts, copy.sh and function.sh In function.sh, create functions that: 
+Create two separate scripts, copy.sh and function.sh In function.sh, create functions that:
 Creates a directory “kaizen”
 Create a file named “I-was-here” with “<your name>” content in your file
-Prints out options for the functions you wrote and accept inputs to choose which function they would like to execute 
+Prints out options for the functions you wrote and accept inputs to choose which function they would like to execute
+
 ```
 #!/bin/bash
 
