@@ -99,3 +99,43 @@ ping google.com
 ```
 
 10; lsof: It is used to display a list of all the open files on a Linux system.
+
+```
+# If lsof command not found, install it
+sudo yum install lsof
+lsof
+```
+
+![linux6](linux6.png)
+
+11; Ifconfig: This is used to configure the kernel-resident network interfaces.
+
+![linux7](linux7.png)
+
+12; ID: This is used to find out user and group names and numeric IDs (UID or group ID) of the current user or any other user in the server.
+Syntax: id <option> <user_name>
+
+13; Cut: This command is used to extract specific fields or columns from a file or standard input.
+
+It is often combined with other commands, such as sort, uniq, and grep, to perform more complex text-processing tasks.
+
+![linux8](linux8.png)
+
+14; Sed: This is used to perform basic text transformations on an input file. It stands for "stream editor" and is a powerful tool for editing text files or streams in a Linux environment.
+
+
+
+15; Redirecting the commands
+
+```
+dat >> dateFile 2>&1
+# 2>&1 - if it's the error or the standard output pls redirect to this file
+[root@docker ~]# dat >> dateFile 2>&1
+[root@docker ~]# cat dateFile
+-bash: dat: command not found
+# O -SUCCESS; 2-STDERROR; 1-STDOUT
+```
+
+All commands all have the output, we have our the standard output, if something wrong, it gonna show us the error output.
+
+
