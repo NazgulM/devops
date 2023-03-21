@@ -29,5 +29,31 @@ cat /etc/shells
 
 The shebang plays an important role in shell scripting, specially while dealing with different types of shell.
 
-The shebang is the combination of # (pound key) and ! mark. This character combination has a special meaning when it's used in the very first line of the script. It is used to specify the interpreter with which the given script will be run by default. So if the first line is #!/bin/bash  - means the interpreter should be bash shell. 
+The shebang is the combination of # (pound key) and ! mark. This character combination has a special meaning when it's used in the very first line of the script. It is used to specify the interpreter with which the given script will be run by default. So if the first line is #!/bin/bash  - means the interpreter should be bash shell.
 
+4; A shell variable is a character, string which is store some value, could be an integer, filename, string or some shell command itself.
+
+Using special variables, shell scripting supports variables such as $0, which refers to the name of the script, $1, $2, $3.
+
+Task-1:
+
+Write a program, which will help us to install git software in linux and macos:
+
+```
+#!/bin/bash
+
+echo "Script to install git"
+echo "Installation is started"
+if [ "$(uname)" == "Linux" ];
+then
+   echo "This is Linux box, installing git"
+   yum install git -y
+elif [ "$(uname)" == "Darwin" ];
+then
+    echo "This is not Linux box"
+    echo "This is MacOs"
+    brew install git
+else
+   echo "Not installing"
+fi
+```
