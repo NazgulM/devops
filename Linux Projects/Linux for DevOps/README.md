@@ -123,7 +123,7 @@ It is often combined with other commands, such as sort, uniq, and grep, to perfo
 
 14; Sed: This is used to perform basic text transformations on an input file. It stands for "stream editor" and is a powerful tool for editing text files or streams in a Linux environment.
 
-
+![linux9](linux9.png)
 
 15; Redirecting the commands
 
@@ -138,4 +138,35 @@ dat >> dateFile 2>&1
 
 All commands all have the output, we have our the standard output, if something wrong, it gonna show us the error output.
 
+16; Diff: This command is used to find the difference between two files.
 
+17; History: This command is used to view the previously executed command.
+“History 10” – Will give you the last 10 executed commands.
+
+18; Free: This command displays the total amount of free space available along with the amount of memory used and swap memory in the system, and also the buffers used by the kernel.
+
+19; ssh user@host – connect to the host as a user.
+
+20; Ssh-keygen: This command is used to generate a public/private authentication key pair.
+
+This process of authentication allows the user to connect remote server without providing a password.
+
+(This authentication method we will use to authenticate the server with Jenkins while deploying CI/CD pipelines).
+
+21; Nslookup: This stands for “Name server Lookup”. This is a tool for checking DNS hostname to Ip or Ip to Hostname. This is very helpful while troubleshooting.
+
+22; Curl: A curl is a tool used for transferring data to or from a server, using various protocols, such as HTTP, HTTPS, FTP, and more. Basic example:
+
+Syntax: curl <url>
+
+23; Df: Df (disk free) command will have an account of available disk space, used by the file system.
+
+24; top: This command is used to monitor the system’s resources and processes that are running in real-time.
+
+25; Ps: We use ps command to check the unique id behind every process.
+
+a = show processes for all users
+
+u = display the process’s user/owner
+
+x = also shows processes not attached to a terminal
