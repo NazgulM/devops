@@ -57,6 +57,7 @@ sort -r: the flag returns the results in reverse order.
 sort -f: the flag does case-insensitive sorting.
 
 sort -n: the flag returns the results as per numerical order.
+sort -hr  - combining together it compares according to the string numerical value and reverses the result of comparison
 
 ![linux4](linux4.png)
 
@@ -170,3 +171,45 @@ a = show processes for all users
 u = display the process’s user/owner
 
 x = also shows processes not attached to a terminal
+
+26; more command
+more -2  - see the content up to
+
+more +10 - read from tens line to the end
+
+27; head
+head -n filename  - displays the top n number of lines
+
+28; tail
+tail command by default read last 10 lines
+tail -n filename   - displays last n number of lines of document.
+
+29; awk commands  - powerful method of processing and analyzing text or data files, which organized by lines
+
+```
+df -h | awk '{print $5}'
+df -h | grep /dev/vda1 | awk '{print $5}'
+```
+
+30; grep
+
+```
+df -h | grep /dev/vda1 
+df -h | grep /dev/vda1 | awk '{print $5}' | cut -d '%' -f1
+```
+
+31; du - disk usage
+du -h  - prints size output in human readable format
+
+du -a  - lists the size of all files and directories
+
+```
+du -ah | sort -hr
+du -ah | sort -h
+```
+
+$0 - script name
+$1 - first parameter of the script
+$@ - Complete list of argument
+$# - process ID of the script
+$? - Exit code for the script

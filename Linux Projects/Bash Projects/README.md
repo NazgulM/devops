@@ -59,3 +59,43 @@ fi
 ```
 
 ![git](ifElse.png)
+
+2; Methods of store variables
+
+```
+var=$(date)
+# in small brackets
+echo $date
+test=`hostname` 
+# use backtick
+echo $test
+```
+
+```
+#!/bin/bash
+
+echo "This program get first 10 biggest files in the filesystem passed via positional argument"
+path="$1"
+echo $path
+du -ah $path |sort -hr | head -n 5 > /tmp/filesize.txt
+echo "This is the list of big files in the filesystem $path"
+cat /tmp/filesize.txt
+```
+
+![file](filesys.png)
+
+```
+#!/bin/bash
+
+echo "Check disk usage in Linux system"
+disk_size=`df -h | grep /dev/vda1 | awk '{print $5}' | cut -d '%' -f1`
+echo "$disk_size% of disk is filled"
+if [ $disk_size -gt 80 ];
+then 
+    echo "Disk is utilized more than 80%, exapnd disk or delete files soon"
+else 
+    echo "Enough disk is available"
+fi
+```
+
+![disk](disk.png)
