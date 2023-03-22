@@ -57,3 +57,5 @@ else
    echo "Not installing"
 fi
 ```
+
+![git](ifElse.png)
