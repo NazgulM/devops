@@ -62,3 +62,204 @@ Kube-proxy: It is a proxy service of Kubernetes, which is executed simply on eac
 
 Worker nodes listens to the API Server for new work assignments. They execute the work assignments and then report the results back to the Kubernetes Master node. Each worker node is controlled by the Master Node.
 
+1; Create following namespaces: dev, qa, prod, test, stage, tools, monitoring:
+
+```
+kubectl create ns dev && kubectl create ns qa && kubectl create ns prod && kubectl create ns test && kubectl create ns stage && kubectl create ns tools && kubectl create ns monitoring
+```
+
+But the best solution is create ns.yaml document with following content:
+
+```
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+      name: dev1
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: qa1
+```
+
+```
+kubectl apply -f ns.yaml
+```
+
+![ns](ns.png)
+
+2; Create nginx pod in each of the aforementioned namespaces
+
+Create nginx.yaml file:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+```
+kubectl create -f nginx.yaml
+```
+
+![pods](pod.png)
+
+3; Create a pod named "hello" that contains 2 images: redis, busybox, and each pod should run in qa and dev namespaces.
+I created the hello.yaml file:
+
+```
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-dev
+  namespace: dev
+spec:
+  containers:
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: busybox
+    image: busybox
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-qa
+  namespace: qa
+spec:
+  containers:
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: busybox
+    image: busybox
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+```
+
+```
+kubectl apply -f hello.yaml
+```
+
+![hello](hello.png)
+
+4; Create a pod named kucc1 with a single container for each of the following images running inside: nginx + redis + memcached + hashicorp/consul
+
+Create kucc1.yaml file
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kucc1
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: memcached
+    image: memcached
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: hashicorp
+    image: consul
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+```
+
+![kucc1](kucc1.png)
+
+5; Schedule pod with mysql image on worker1
+Created mysql.yaml file, use
+
+```
+kubectl get nodes
+```
+
+For knowing the name of 2 worker nodes:
+
+![nodes](nodes.png)
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql
+spec:
+  nodeName: gke-cluster-1-default-pool-5e601002-g4h2  # schedule pod to specific node
+
+  containers:
+  - name: mysql
+    image: mysql
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+```
+
+![mysql](mysql.png)
+
+6; Schedule pod with mariadb image on worker2
+
+Create the mariadb.yaml file and put this:
+
+```
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mariadb
+spec:
+  nodeName: gke-cluster-1-default-pool-5e601002-l86m  # schedule pod to specific node
+
+  containers:
+
+- name: mariadb
+    image: mariadb
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+
+```
+
+![mariadb](mariadb.png)
+
+7; Schedule pod with busybox image and labels: "team=devops, company=kaizen"  in a default namespace
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: labels-busybox
+  labels:
+    team: devops
+    company: kaizen
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+```
+
+![getPods](getPod.png)
+
+![labels](label.png)
+

@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-dev
+  namespace: dev
+spec:
+  containers:
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: busybox
+    image: busybox
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-qa
+  namespace: qa
+spec:
+  containers:
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]
+  - name: busybox
+    image: busybox
+    ports:
+    - containerPort: 80
+    command: ["/bin/sh", "-ec", "sleep 1000"]

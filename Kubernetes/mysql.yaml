@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql
+spec:
+  nodeName: gke-cluster-1-default-pool-5e601002-g4h2  # schedule pod to specific node
+
+  containers:
+  - name: mysql
+    image: mysql
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-ec", "sleep 1000"]

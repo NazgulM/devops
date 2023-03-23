@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mariadb
+spec:
+  nodeName: gke-cluster-1-default-pool-5e601002-l86m # schedule pod to specific node
+  containers:
+  - name: mariadb
+    image: mariadb
+    imagePullPolicy: IfNotPresent
+    command: ["/bin/sh", "-ec", "sleep 1000"]
