@@ -10,3 +10,10 @@ DOW (Day of week) - 0-6
 CMD - Command
 
 30 08 10 06 - 10th June  08:30 Am
+
+Other way to work crontab in our Vm
+
+```
+* * * * * /root/dockerService.sh > /dev/null
+
+![cronjob](cron.png)

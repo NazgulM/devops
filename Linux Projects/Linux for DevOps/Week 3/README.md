@@ -27,3 +27,32 @@
 25. Create a file devops.txt with user A.
 26. Give Read,write and execute permission to Group D for devops.txt.Check if User B can modify the content of file and save it .
 27. Change the owner of devops.txt to User C.
+
+```
+1. hostname -f
+2. export MY_SQL_USER=naza
+export MY_SQl_PASSWORD=password
+3. Echo the two variable values
+echo $MY_SQL_USER
+naza
+echo $MY_SQL_PASSWORD
+4. Export the above two variables in bashrc file.
+#!/bin/bash
+echo $MY_SQL_USER
+echo $MY_SQL_PASSWORD
+```
+
+![bashrc](bashrc.png)
+
+```
+5. List all hidden files in your home directory.
+ls -latr
+6. Create a directory in your home folder named as test and inside the test folder create file my_intro with content as your name.
+mkdir test && cd test && echo "naza" > my_intro
+7. Create a file demo.txt using touch command and write around 20 lines in this file.
+Done
+8. Print the output of first 5 lines from demo.txt and then last 5 lines 
+head -n 5 demo.txt && tail -n 5 demo.txt 
+```
+
+![head](head.png)
