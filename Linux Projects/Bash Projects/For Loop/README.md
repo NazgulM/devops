@@ -46,4 +46,3 @@ Script will find the folders, and if the test folder doesn't exist, it should re
 Result:
 
 ![result](res.png)
-
