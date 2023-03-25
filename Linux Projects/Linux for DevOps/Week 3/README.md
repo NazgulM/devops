@@ -56,3 +56,73 @@ head -n 5 demo.txt && tail -n 5 demo.txt
 ```
 
 ![head](head.png)
+
+```
+9. find all the files inside your home directory whose last modification date is minimum 20 minutes 
+find . -mmin -20
+Output: 
+.
+./packages.sh
+10. create a file server.txt in /home and then move server.txt with name as server1.txt to /home/random directory . Note you need to create random directory here.
+
+mkdir random && touch server.txt && mv server.txt /root/random/server1.txt
+```
+![random](random.png)
+
+```
+11. Delete the file server1.txt and the directory /home/random
+
+rm -rf random/
+12. Create a group named as demo .
+groupadd demo
+13. create a user with your name in the group demo .
+useradd -G demo naza
+14. Using change command change the password for your user.
+passwd naza
+15. Create a user with directory assigned as /var/lib.
+useradd -m userName /var/lib
+16. View the content in /etc/passwd and /etc/group
+cat /etc/passwd && cat /etc/group
+17. Done
+18. Enable ,start and stop the docker service using systemctl command.
+systemctl enable docker
+systemctl start docker
+systemctl stop docker
+19. Store hostname, ip machine and disk usage  of your system in a file called as system-conf.txt
+hostname -f > system-conf.txt && ip add >> system-conf.txt && du -h >> system-conf.txt
+hostname -f > system-conf.txt && curl ifconfig.me >> system-conf.txt && du -sh | awk '{print $1}' >> system-conf.txt
+20. In system-conf.txt replace ip machine with hostname of your machine.
+sed -i 's/137.184.68.32/centos/g' system-conf.txt 
+21. Ping myntra website and check if server is reachable or not.
+```
+
+![myntra](myntra.png)
+
+```
+22. Kill the process running for your docker using kill command .
+docker kill 082345939fed 
+23. Create three users A,B and C. 
+for i in `cat users.txt` ; do useradd $i ; done
+
+cat /etc/redhat-release | awk '{print $1}'
+CentOS
+24. Create a group D , assign B and C user to that group.
+for i in {B,C}; do usermod -aG D $i; done
+25. Create a file devops.txt with user A.
+sudo -u A bash -c "cd /home/A && touch devops.txt"
+```
+
+![A user](A.png)
+
+```
+26. Give Read,write and execute permission to Group D for devops.txt.Check if User B can modify the content of file and save it .
+chmod g+rwx /home/A/devops.txt
+```
+
+![devops](devops.png)
+
+```
+27. Change the owner of devops.txt to User C.
+chown C /home/A/devops.txt
+```
+
