@@ -82,3 +82,13 @@ By default, software projects come with one child issue type:
 Subtask
 
 A subtask is a piece of work that is required to complete a task. Subtasks issues can be used to break down any of your standard issues in Jira (bugs, stories or tasks).
+
+Practice with Jira
+1; Create project- give it the name
+2; By default it creates like by scrum method, then we can create epic, which is entire software product, summary, can link with another issues, give the priority based on the priority, i can work on it. Select label.
+3; this time i can create the story, e.g. UI development book app, priority, labels, can select epic to this issue-> create.
+4; create story, table creation form book name, created the story.
+5; Create bug, system crashing if more than 1000 are buying at the same time, select epic, sprint, create.
+6; Create Sprint -> once it's created we can assign our tasks in this sprint.
+Start sprint -> name -> assign the time.
+They can move the tasks to in progress or done if the tasks are completed.

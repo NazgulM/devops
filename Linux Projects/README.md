@@ -145,3 +145,7 @@ scp /root/function.sh root@157.230.95.36:/root/
 ssh -t root@157.230.95.36 mkdir naza
 
 ```
+
+```
+lscpu | grep -e "^CPU(s):" | cut -d ":" -f2 | awk '{print $1}'
+```
