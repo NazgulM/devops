@@ -1,6 +1,6 @@
- Why ANSIBLE
+ # Why ANSIBLE
 
-Develop scripts and maintainence scripts ad have to use a lot iof time to put scripts together. For example you have a number of holes in your environment taht you would like to restart in a particular order. Some of them a re web servers and others a re databases, 
+Develop scripts and maintenance scripts ad have to use a lot iof time to put scripts together. For example you have a number of holes in your environment that you would like to restart in a particular order. Some of them a re web servers and others a re databases, 
 
 So you would like to power down the Web servers first followed by the database servers then power up
 
