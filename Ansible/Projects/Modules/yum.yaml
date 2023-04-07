@@ -1,0 +1,8 @@
+---
+ - name: install git
+   hosts: all
+   tasks:
+    - name: yum
+      yum:
+       name: git
+       state: latest

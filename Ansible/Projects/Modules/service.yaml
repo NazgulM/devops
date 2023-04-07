@@ -1,0 +1,8 @@
+---
+ - name: deal with service
+   hosts: all
+   tasks:
+    - name: service start
+      service:
+         name: docker
+         state: started
