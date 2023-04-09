@@ -19,3 +19,41 @@ Conditionals
 In Ansible, you can define conditions that will be evaluated before a task
 is executed. When condition is not met, the task is then skipped. This is done with when keyword, which accepts expressions that are typically based on a variable or a fact.
 
+1; Task: install softwares if Centos machine is 7 version:
+
+```
+---
+ - name: install multiple softwares
+   hosts: all
+   tasks:
+    - name: install softwares multiple
+      yum:
+       name: "{{ item }}"
+       state: latest
+      when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7")
+      loop:
+       - git
+       - docker
+       - python3
+       - java
+```
+
+![centos](centos.png)
+
+The result of installed softwares:
+My node1 machine is:
+
+```
+cat /etc/redhat-release
+CentOS Linux release 7.9.2009 (Core)
+git --version
+git version 1.8.3.1
+
+python3 --version
+Python 3.6.8
+
+java -version
+openjdk version "1.8.0_362"
+OpenJDK Runtime Environment (build 1.8.0_362-b08)
+OpenJDK 64-Bit Server VM (build 25.362-b08, mixed mode)
+```

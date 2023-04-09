@@ -1,0 +1,17 @@
+
+---
+- hosts: alertmanager
+  roles:
+    - alertmanager
+
+- hosts: node_exporter
+  roles:
+    - prometheus_node_exporter
+
+- hosts: prometheus
+  roles:
+    - prometheus
+
+- hosts: grafana
+  roles:
+    - grafana
