@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    software_name: curl
+  tasks:
+   - name: softwares
+     yum:
+       name: "{{ software_name }}"
+       state: latest

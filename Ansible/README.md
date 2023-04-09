@@ -89,3 +89,7 @@ ansible-playbook playbook2.yaml
 ```
 
 ![docker](docker.png)
+
+Idempotency: if something already there, it will skipped, if it's not there it will run.
+
+

@@ -1,0 +1,11 @@
+---
+- name: Modify files
+  hosts: all
+  tasks: 
+   - name: change some lines
+     lineinfile:
+        path: /root/1.txt
+        #regexp: '^Devops'
+        insertafter: 'EOF'
+        line: 'END OF TEXT FILE'
+        backup: yes
