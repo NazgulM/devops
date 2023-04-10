@@ -1,0 +1,7 @@
+---
+# tasks file for naza
+- name: user create
+  include_tasks: user.yaml
+
+- name: install git
+  include_tasks: install.yaml

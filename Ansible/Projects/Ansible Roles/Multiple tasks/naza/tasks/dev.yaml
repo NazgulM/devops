@@ -1,0 +1,5 @@
+
+- name: calling some roles
+  hosts: all
+  roles:
+   - naza

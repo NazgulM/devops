@@ -1,0 +1,14 @@
+---
+- name: check date of target system
+  hosts: all
+  tasks:
+    - name: register date and check
+      shell: |
+        date
+        hostname -f
+        uptime
+      register: out
+
+    - name: debug messages
+      debug:
+        var: out

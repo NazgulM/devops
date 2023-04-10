@@ -1,0 +1,4 @@
+- name: install software
+  yum:
+   name: git
+   state: latest

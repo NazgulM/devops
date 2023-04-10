@@ -143,6 +143,7 @@ It will replace Devops to ansibleclass
         line: 'END OF TEXT FILE'
         backup: yes
 ```
+
 ```
 [root@centos-node1 ~]# cat 1.txt
 ansibleclass
@@ -153,4 +154,85 @@ END OF TEXT FILE
 ```
 
 It added the END OF TEXT FILE line at the end.
+
+## Register, Debug and Shell in ansible
+
+Can create variables from the output of an Ansible task with the task keyword register. can use registered variables in any later tasks in your play. 
+
+Debug: this module prints statements during execution and can be useful for debugging variables or expressions without necessarily halting the playbook. Useful for debugging together with the when directive.
+
+Shell: designed to execute shell commands against target Unix based hosts. Unlike the Ansible command module, ansible Shell would accept any highly complexed commands with pipes, redirection etc.
+
+6; Create yaml file, using shell command, with date command, output of this shell module will store in out variable, can give other name, you should get the date of the target system.
+
+```
+---
+- name: check date of target system
+  hosts: all
+  tasks:
+    - name: register date and check
+      shell: date
+      register: out
+
+    - name: debug messages
+      debug:
+        var: out
+
+# Result
+ok: [161.35.52.15] => {
+    "out": {
+        "changed": true, 
+        "cmd": "date", 
+        "delta": "0:00:00.003913", 
+        "end": "2023-04-09 18:58:25.461340", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2023-04-09 18:58:25.457427", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "Sun Apr  9 18:58:25 UTC 2023", 
+        "stdout_lines": [
+            "Sun Apr  9 18:58:25 UTC 2023"
+        ]
+    }
+}
+```
+Using multiple shell commands:
+
+```
+---
+- name: check date of target system
+  hosts: all
+  tasks:
+    - name: register date and check
+      shell: |
+        date
+        hostname -f
+        uptime
+      register: out
+
+    - name: debug messages
+      debug:
+        var: out
+
+ok: [161.35.52.15] => {
+    "out": {
+        "changed": true, 
+        "cmd": "date\nhostname -f\nuptime\n", 
+        "delta": "0:00:00.009447", 
+        "end": "2023-04-09 19:08:14.519152", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2023-04-09 19:08:14.509705", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "Sun Apr  9 19:08:14 UTC 2023\ncentos-node1\n 19:08:14 up 2 days, 15:13,  2 users,  load average: 0.00, 0.01, 0.05", 
+        "stdout_lines": [
+            "Sun Apr  9 19:08:14 UTC 2023", 
+            "centos-node1", 
+            " 19:08:14 up 2 days, 15:13,  2 users,  load average: 0.00, 0.01, 0.05"
+        ]
+    }
+}
+```
 
