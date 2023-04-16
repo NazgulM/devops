@@ -90,3 +90,14 @@ Terraform can provision infra across public clouds Azure, Google Cloud, DigitalO
 
 ```
 Install terraform on MacOs
+Create user in IAM, Create secret credentials for cli, and export them
+
+```
+
+export AWS_ACCESS_KEY_ID="YourAccessKeyId"
+export AWS_SECRET_ACCESS_KEY="yourSecretAccessKey"
+
+```
+
+Write Terraform Code to deploy a single server on aws cloud
+ Terraform is written in the HashiCorp Configuration Language (HCL) in files with the extension. It is a declarative language, so goal is to describe the infrastructure I want , and Terraform will figure out how to create it.
